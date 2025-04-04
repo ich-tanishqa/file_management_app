@@ -55,6 +55,15 @@ def edit_file(filename):
     except Exception as e:
         print('An error occurred!')
 
+def rename_file(old_name, new_name):
+    try:
+        os.rename(old_name, new_name)
+        print(f"File renamed from {old_name} to {new_name} successfully!")
+    except FileNotFoundError:
+        print("File not found!")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 def search_in_file(filename, search_text):
     try:
         with open(filename, 'r') as f:
@@ -94,13 +103,14 @@ def main():
         print('1: Create file')
         print('2: View all files')
         print('3: File information')
-        print('4: Delete file')
-        print('5: Read file')
-        print('6: Edit file')
-        print('7: Search in file')
-        print('8: Exit')
+        print('4: File rename')
+        print('5: Delete file')
+        print('6: Read file')
+        print('7: Edit file')
+        print('8: Search in file')
+        print('9: Exit')
 
-        choice = input('Enter your choice (1-8) = ')
+        choice = input('Enter your choice (1-9) = ')
 
         if choice == '1':
             filename = input("Enter the file-name to create = ")
@@ -114,23 +124,28 @@ def main():
             get_file_info(filename)
 
         elif choice == '4':
+            old_name = input('Enter the old file name = ')
+            new_name = input('Enter the new file name = ')
+            rename_file(old_name, new_name)
+
+        elif choice == '5':
             filename = input('Enter the name of file you want to delete = ')
             delete_file(filename)
 
-        elif choice == '5':
+        elif choice == '6':
             filename = input('Enter file name to read = ')
             read_file(filename)
 
-        elif choice == '6':
+        elif choice == '7':
             filename = input('Enter file name to edit = ')
             edit_file(filename)
 
-        elif choice == '7':
+        elif choice == '8':
             filename = input('Enter file name: ')
             search_text = input('Enter text to search: ')
             search_in_file(filename, search_text)
 
-        elif choice == '8':
+        elif choice == '9':
             print("Exiting File Management App.")
             exit()
 
