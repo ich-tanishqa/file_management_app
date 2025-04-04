@@ -39,12 +39,13 @@ FILE MANAGEMENT APP
 1: Create file
 2: View all files
 3: File information
-4: Delete file
-5: Read file
-6: Edit file
-7: Search in file
-8: Exit
-Enter your choice (1-8):
+4: File rename
+5: Delete file
+6: Read file
+7: Edit file
+8: Search in file
+9: Exit
+Enter your choice (1-9):
 ```
 
 Simply enter the corresponding number for the desired action.
